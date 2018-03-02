@@ -50,7 +50,14 @@ draws <- coda::mcmc.list(draws_list)
 sirt::mcmc.list.descriptives(draws)[, "Rhat"]
 
 # Plot trace and intervals
+png(filename="MCMC_trace_plots.png", width=2000, height=750, res=300)
 mcmc_trace(draws)
+dev.off()
+
+png(filename="MCMC_interval_plots.png", width=2000, height=750, res=300)
 mcmc_intervals(draws)
+dev.off()
+
+
 s <- summary(draws)
-s
+prin(s)
